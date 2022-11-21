@@ -20,14 +20,14 @@ export const getInit = (props) => `<html>
                                         ${
                                           props.stock
                                             ? (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highstock.js"></script>`
-                                              : `<script type='text/javascript' src="https://code.highcharts.com/stock/highstock.js"></script>`)
+                                              : `<script type='text/javascript' src="file:///android_asset/js/highstock.js"></script>`)
                                             : (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highcharts.js"></script>`
-                                              : `<script type='text/javascript' src="https://code.highcharts.com/highcharts.js"></script>`)
+                                              : `<script type='text/javascript' src="file:///android_asset/js/highcharts.js"></script>`)
                                         }
                                         ${
                                           props.more
                                             ? (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highcharts-more.js"></script>`
-                                              : `<script type='text/javascript' src="https://code.highcharts.com/highcharts-more.js"></script>`)
+                                              : `<script type='text/javascript' src="file:///android_asset/js/highcharts-more.js"></script>`)
                                             : ''
                                         }
                                         ${
