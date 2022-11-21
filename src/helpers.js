@@ -1,3 +1,6 @@
+import RNFS from 'react-native-fs';
+import { Platform } from 'react-native';
+
 export const getInit = (props) => `<html>
                                     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
                                     <style media="screen" type="text/css">
@@ -16,12 +19,15 @@ export const getInit = (props) => `<html>
                                     <head>
                                         ${
                                           props.stock
-                                            ? '<script src="https://code.highcharts.com/stock/highstock.js"></script>'
-                                            : '<script src="https://code.highcharts.com/highcharts.js"></script>'
+                                            ? (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highstock.js"></script>`
+                                              : `<script type='text/javascript' src="https://code.highcharts.com/stock/highstock.js"></script>`)
+                                            : (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highcharts.js"></script>`
+                                              : `<script type='text/javascript' src="https://code.highcharts.com/highcharts.js"></script>`)
                                         }
                                         ${
                                           props.more
-                                            ? '<script src="https://code.highcharts.com/highcharts-more.js"></script>'
+                                            ? (Platform.OS === 'ios' ? `<script type='text/javascript' src="${RNFS.MainBundlePath}/assets/resources/images/highcharts-more.js"></script>`
+                                              : `<script type='text/javascript' src="https://code.highcharts.com/highcharts-more.js"></script>`)
                                             : ''
                                         }
                                         ${
